@@ -3,9 +3,8 @@
     "username": "postgres",
     "password": "Ami16Azu04",
     "database": "epayco",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "host": "ec2-3-211-149-196.compute-1.amazonaws.com",
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
