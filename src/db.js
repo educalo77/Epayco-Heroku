@@ -6,11 +6,15 @@ const UserModel = require("./models/user");
 const TransactionModel = require("./models/transaction");
 const BalanceModel = require("./models/balance");
 
-const sequelize = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, process.env.PG_PASSWORD, {
-    host: process.env.PG_HOST,
-    dialect: 'postgres',
-    operatorsAliases: false,
-   
+  const PG_DATABASE = "dtagarr2ddp35";
+  const PG_USER = "mlpizxglutumwp";
+  const PG_PASSWORD = "9ef203d52ac90ebb47805606e26c32494e19f16ef3507828936d96659362f949";
+  const PG_HOST = "ec2-3-211-149-196.compute-1.amazonaws.com";
+
+const sequelize = new Sequelize(PG_DATABASE, PG_USER, PG_PASSWORD, {
+    host: PG_HOST,
+     dialect: 'postgres',
+    
     pool: {
       max: 5,
       min: 0,
@@ -52,12 +56,12 @@ Balance.belongsTo(User);
 // }
 //const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
 
-// const proConfig = process.env.DATABASE_URL; //heroku addons
+const proConfig = process.env.DATABASE_URL; //heroku addons
 
-// const pool = new Pool({
-//   connectionString:
-//     process.env.NODE_ENV === "production" ? proConfig : devConfig,
-// });
+const pool = new Pool({
+  connectionString:
+    process.env.NODE_ENV === "production" ? proConfig : devConfig,
+});
 
 
 
@@ -65,5 +69,6 @@ module.exports = {
     conn: sequelize,
     User,
     Transaction,
-    Balance
+    Balance,
+    pool
 };
