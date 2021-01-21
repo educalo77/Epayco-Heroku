@@ -6,21 +6,8 @@ const UserModel = require("./models/user");
 const TransactionModel = require("./models/transaction");
 const BalanceModel = require("./models/balance");
 
-// const sequelize = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, process.env.PG_PASSWORD, {
-//     host: process.env.PG_HOST,
-//     dialect: 'postgres',
-//     operatorsAliases: false,
-   
-//     pool: {
-//       max: 5,
-//       min: 0,
-//       acquire: 30000,
-//       idle: 10000
-//     }
-// });
-  
-const sequelize = new Sequelize("postgres://mlpizxglutumwp:9ef203d52ac90ebb47805606e26c32494e19f16ef3507828936d96659362f949@ec2-3-211-149-196.compute-1.amazonaws.com:5432/dtagarr2ddp35", "mlpizxglutumwp", "9ef203d52ac90ebb47805606e26c32494e19f16ef3507828936d96659362f949", {
-    host: "ec2-3-211-149-196.compute-1.amazonaws.com",
+const sequelize = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, process.env.PG_PASSWORD, {
+    host: process.env.PG_HOST,
     dialect: 'postgres',
     operatorsAliases: false,
    
@@ -30,7 +17,20 @@ const sequelize = new Sequelize("postgres://mlpizxglutumwp:9ef203d52ac90ebb47805
       acquire: 30000,
       idle: 10000
     }
-  });
+});
+  
+// const sequelize = new Sequelize("postgres://mlpizxglutumwp:9ef203d52ac90ebb47805606e26c32494e19f16ef3507828936d96659362f949@ec2-3-211-149-196.compute-1.amazonaws.com:5432/dtagarr2ddp35", "mlpizxglutumwp", "9ef203d52ac90ebb47805606e26c32494e19f16ef3507828936d96659362f949", {
+//     host: "ec2-3-211-149-196.compute-1.amazonaws.com",
+//     dialect: 'postgres',
+//     operatorsAliases: false,
+   
+//     pool: {
+//       max: 5,
+//       min: 0,
+//       acquire: 30000,
+//       idle: 10000
+//     }
+//   });
 
 const User = UserModel(sequelize, DataTypes);
 const Transaction = TransactionModel(sequelize,DataTypes)
