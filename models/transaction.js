@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     userId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'User',
