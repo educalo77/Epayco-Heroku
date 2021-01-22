@@ -1,4 +1,6 @@
-const { User } = require("../db");
+// const { User } = require("../db");
+const db = require("../../models/index");
+const User = db.User;
 const createOneBalance = require("./balanceControllers").createOne;
 
 const getAll = () => {
