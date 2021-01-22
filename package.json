@@ -2,10 +2,10 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "soap": "^0.35.0"
   }

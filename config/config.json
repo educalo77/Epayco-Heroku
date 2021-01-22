@@ -2,9 +2,10 @@
   "development": {
     "username": "postgres",
     "password": "Ami16Azu04",
-    "database": "epayco",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "database": "epaycoheroku",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
@@ -19,7 +20,7 @@
     "database": "dtagarr2ddp35",
     "host": "ec2-3-211-149-196.compute-1.amazonaws.com",
     "dialect": "postgres",
-    "operatorsAliases": false,
-    "use_env_variable": "DATABASE_URL"
+    "operatorsAliases":false,
+    "use_env_variable":"DATABASE_URL"
   }
 }
