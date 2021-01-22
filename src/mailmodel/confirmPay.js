@@ -5,10 +5,9 @@ var mg = require('nodemailer-mailgun-transport');
 const jwt = require('jsonwebtoken');
 const secret = process.env.EMAIL_SECRET || 'secret';
 
-const {
-  MAILGUN_API_KEY,
-  MAILGUN_DOMAIN
-} = process.env;
+const MAILGUN_API_KEY = "8b2294aff316c3f41e6fb2a1814db9b0-b6190e87-120fae29";
+const MAILGUN_DOMAIN = "sandbox7ce46820587e4afd8176b868dfdf7fdc.mailgun.org";
+
 
 var auth = {
   auth: {
