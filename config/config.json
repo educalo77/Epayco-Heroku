@@ -2,10 +2,9 @@
   "development": {
     "username": "postgres",
     "password": "Ami16Azu04",
-    "database": "epaycoheroku",
+    "database": "epaycoheru",
     "host": "localhost",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

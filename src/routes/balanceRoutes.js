@@ -8,7 +8,7 @@ router
   .route("/")
   .get((req, res) => { 
     const userId = req.user ? req.user.userId : false
-    userId ?
+    userId ? 
     getOneByUserId(userId)
     .then((users) => res.json(users).status(200))
     .catch((err) => res.status(404).json(err))

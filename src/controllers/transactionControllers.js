@@ -1,4 +1,6 @@
-const { Transaction, User } = require("../db");
+const db = require("../../models/index");
+const Transaction = db.transaction;
+const User = db.User;
 const { getOneByUserId } = require("./balanceControllers");
 const getOneUser = require("./userControllers").getOne;
 
@@ -40,7 +42,7 @@ const createOne = (userId, amount, action) => {
     });
 };
 
-const recharge = (userId, amount)=>{
+const recharge = (userId, amount) => {
   return new Promise((resolve,reject)=>{
       getOneByUserId(userId)
       .then((balance)=>{

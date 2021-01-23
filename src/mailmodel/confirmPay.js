@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.EMAIL_SECRET || 'secret';
 
 const MAILGUN_API_KEY = "8b2294aff316c3f41e6fb2a1814db9b0-b6190e87-120fae29";
-const MAILGUN_DOMAIN = "sandbox7ce46820587e4afd8176b868dfdf7fdc.mailgun.org";
+const MAILGUN_DOMAIN = "https://api.mailgun.net/v3/sandbox7ce46820587e4afd8176b868dfdf7fdc.mailgun.org";
 
 
 var auth = {
@@ -33,9 +33,8 @@ function confirmPay(obj) {
   modelEmail = modelEmail.replace("%dollar%", obj.amount);
   modelEmail = modelEmail.replace("%resetlink%", datatemplate)
 
-
    nodemailerMailgun.sendMail({
-    from: 'epayco@epayco.com',
+    from: 'pague@pagueya.com',
     to: obj.user.dataValues.email,
     subject: 'Confirmacion de pago',
     html: modelEmail

@@ -1,9 +1,11 @@
 'use strict';
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class user extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,13 +13,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-     
-      User.hasOne(models.Balance, {
-      foreignKey: 'userId',
-    })
+      user.hasMany(models.transaction, { as: 'transactions' });
+      user.hasOne(models.balance)
     }
   };
-  User.init({
+  user.init({
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -70,10 +70,10 @@ module.exports = (sequelize, DataTypes) => {
       },
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'user',
   });
-    User.prototype.compare = function (pass) {
+    user.prototype.compare = function (pass) {
     return bcrypt.compareSync(pass, this.phone);
   };
-  return User;
+  return user;
 };

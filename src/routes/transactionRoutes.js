@@ -10,7 +10,7 @@ const {confirmPay} = require("../mailmodel/confirmPay.js");
 const {
   getOne,  
 } = require("../controllers/userControllers");
-const secret = process.env.EMAIL_SECRET || 'secret';
+const secret = 'cat123';
 
 router
   .route("/")
@@ -30,17 +30,17 @@ router
   .route("/confirmpayment")
   .post((req, res) => {
     const userId = req.user ? req.user.userId : false
-    const {amount} = req.body;
+    const { amount } = req.body;
     userId?
       jwt.verify(amount.token, secret, (error, data) => {
       if (error) res.sendStatus(401)
       else {
-        getOne(data.id)
+        getOne(data.userId)
           .then((user) =>{
             if(!user.compare(amount.phone.toString())){ 
             return res.status(401)
             }          
-            return payment(data.id, data.amount)
+            return payment(data.userId, amount.amount) //(data.id, data.amount)
            })
           .then((user) => res.json(user).status(201))
           .catch((err) => {            

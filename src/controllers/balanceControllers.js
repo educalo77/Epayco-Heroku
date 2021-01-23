@@ -1,4 +1,5 @@
-const { Balance } = require("../db");
+const db = require("../../models/index");
+const Balance = db.balance;
 
 const getAll = () => {
   return new Promise((resolve, reject) => {
@@ -35,7 +36,6 @@ const createOne = (userId, available) => {
       })
       .then((user) => resolve(user))
       .catch((err) =>{
-        console.log(err);
         reject(err)
       } );
   });

@@ -1,6 +1,6 @@
 // const { User } = require("../db");
 const db = require("../../models/index");
-const User = db.User;
+const User = db.user;
 const createOneBalance = require("./balanceControllers").createOne;
 
 const getAll = () => {
@@ -30,13 +30,14 @@ const getAll = () => {
 };
 
 const createOne = (name, email, phone, document) => {
-  return new Promise((resolve, reject) => {   
+  return new Promise((resolve, reject) => { 
     User.create({ name, email, phone, document })
-      .then((user) =>{
-        createOneBalance(user.id,0)
-        resolve(user)
+      .then((user) => {
+        createOneBalance(user.dataValues.id,0)
+        resolve(user.dataValues)
       })
-      .catch((err) =>{       
+      .catch((err) => { 
+        console.log(err, 'createOne')
         reject(err)
       } );
   });
