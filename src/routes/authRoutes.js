@@ -2,7 +2,7 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 require("dotenv").config();
-const secret = process.env.EMAIL_SECRET
+const secret = process.env.EMAIL_SECRET || 'cat123';
 
 router.route("/login/email").post(function(req,res,next){  
     passport.authenticate("local", function (err, user, info) {

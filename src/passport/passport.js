@@ -3,7 +3,7 @@ require("dotenv").config();
 const { getOneByEmail } = require("../controllers/userControllers")
 const LocalStrategy = require("passport-local").Strategy
 const BearerStrategy = require("passport-http-bearer").Strategy
-const secret = 'cat123'
+const secret = 'cat123';
 
 const jwt = require("jsonwebtoken")
 
