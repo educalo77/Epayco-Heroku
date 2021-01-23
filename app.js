@@ -7,7 +7,7 @@ const routes = require("./src/routes/index");
 require("dotenv").config();
 const passport = require("./src/passport/passport");
 
-const port = process.env.PG_PORT || 5432;
+const port = process.env.PORT || 5432;
 const app = express();
 
 app.name = "API";
