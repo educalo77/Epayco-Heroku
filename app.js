@@ -9,24 +9,24 @@ const passport = require("./src/passport/passport");
 var pg = require('pg');
 pg.defaults.ssl = true;
 
-const connectionString = 'postgres://hohflvpytjwvpj:d3fdb2563dc47aafe7a75702458d5810ae135577bd5fc3b39029793d395bf033@ec2-52-54-174-5.compute-1.amazonaws.com:5432/dnm2rj006h1k3';
+// const connectionString = 'postgres://hohflvpytjwvpj:d3fdb2563dc47aafe7a75702458d5810ae135577bd5fc3b39029793d395bf033@ec2-52-54-174-5.compute-1.amazonaws.com:5432/dnm2rj006h1k3';
 
-const { Client } = require('pg');
+// const { Client } = require('pg');
 
-const client = new Client({
-  connectionString: connectionString,
-  ssl: { rejectUnauthorized: false }
-});
+// const client = new Client({
+//   connectionString: connectionString,
+//   ssl: { rejectUnauthorized: false }
+// });
 
-client.connect();
+// client.connect();
 
-client.query('SELECT * FROM users;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
+// client.query('SELECT * FROM users;', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
 
 const port = process.env.PORT || 5432;
 const app = express();
