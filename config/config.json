@@ -19,7 +19,9 @@
     "database": "dnm2rj006h1k3",
     "host": "ec2-52-54-174-5.compute-1.amazonaws.com",
     "dialect": "postgres",
-    "operatorsAliases":false,
+    "dialectOptions": {
+      "ssl": true
+    },
     "use_env_variable":"DATABASE_URL"
   }
 }
