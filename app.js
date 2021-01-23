@@ -6,6 +6,8 @@ const cors = require("cors");
 const routes = require("./src/routes/index");
 require("dotenv").config();
 const passport = require("./src/passport/passport");
+var pg = require('pg');
+pg.defaults.ssl = true;
 
 const port = process.env.PORT || 5432;
 const app = express();
